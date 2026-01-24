@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://vgh87f4su24u"]
+
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_nek0s"]
+[ext_resource type="Texture2D" uid="uid://bo5pxse7q88o8" path="res://assets/characters/Wizard_Asset_Pack/PNGs/IDLE/Wizard_Idle1.png" id="1_qh86m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q54xa"]
+radius = 5.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_nek0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qh86m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 7)
+shape = SubResource("CapsuleShape2D_q54xa")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://csbwxjevbi5ut"]
+
+[node name="SpellProjectile" type="Node2D"]
