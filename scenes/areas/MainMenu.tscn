@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0qomf7hldbjh"]
+
+[sub_resource type="TileSet" id="TileSet_r3saq"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_r3saq")
+format = 2
