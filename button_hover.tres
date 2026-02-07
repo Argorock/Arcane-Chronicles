@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://di33vn07h0pkh"]
+
+[ext_resource type="Texture2D" uid="uid://c2yongfga2m4o" path="res://assets/extras/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/Button_52x14.png" id="1_bx88o"]
+
+[resource]
+texture = ExtResource("1_bx88o")
+texture_margin_left = 8.0
+texture_margin_top = 6.0
+texture_margin_right = 8.0
+texture_margin_bottom = 6.0
+modulate_color = Color(0.968627, 0.913725, 0.843137, 1)

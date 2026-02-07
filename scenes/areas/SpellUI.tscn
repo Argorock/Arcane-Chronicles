@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://buyvswupctu2p"]
+
+[ext_resource type="Theme" uid="uid://bwo3i0lx4kiny" path="res://SpellUITheme.tres" id="1_fcasu"]
+
+[node name="SpellUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fcasu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TabContainer" type="TabContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CastingTab" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/CastingTab"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/CastingTab/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+columns = 3
+
+[node name="ElementsTab" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/ElementsTab"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/ElementsTab/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="BehaviorTab" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/BehaviorTab"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/BehaviorTab/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="UtilitiesTab" type="VBoxContainer" parent="Panel/HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/TabContainer/UtilitiesTab"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/UtilitiesTab/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4

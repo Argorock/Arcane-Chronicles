@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxgsyiey4qhdc"]
+
+[ext_resource type="Texture2D" uid="uid://c7jcvplr1pnrx" path="res://assets/extras/PixelAngelStatueLite/15.png" id="1_fb3ec"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7d6ws"]
+radius = 9.0
+height = 38.0
+
+[node name="SaveStatue" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.0368652, 0.0400391)
+texture = ExtResource("1_fb3ec")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7d6ws")

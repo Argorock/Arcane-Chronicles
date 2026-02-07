@@ -3,10 +3,10 @@ extends Resource
 class_name Spell
 
 # Enums
-const Element = preload("res://spells/element.gd")
-const CastingType = preload("res://spells/casting_type.gd")
-const Behavior = preload("res://spells/behavior.gd")
-const Utility = preload("res://spells/utility.gd")
+const Element = preload("res://system/spells/element.gd")
+const CastingType = preload("res://system/spells/casting_type.gd")
+const Behavior = preload("res://system/spells/behavior.gd")
+const Utility = preload("res://system/spells/utility.gd")
 
 #		Spell Name
 @export var spell_name: String = "Unnamed Spell"

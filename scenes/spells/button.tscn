@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bom4ognbugots"]
+
+[ext_resource type="Theme" uid="uid://bwo3i0lx4kiny" path="res://SpellUITheme.tres" id="1_ty4o0"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(500, 200)
+theme = ExtResource("1_ty4o0")
+toggle_mode = true
