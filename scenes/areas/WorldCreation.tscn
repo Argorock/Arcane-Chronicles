@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://qcdk1ebgnj3v"]
 
-[node name="HubMenu" type="Node2D"]
+[node name="WorldCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 553.0
+offset_top = 391.0
+offset_right = 553.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dificulty" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Easy" type="Button" parent="Panel/dificulty"]
+layout_mode = 2
+text = "Easy"
+
+[node name="Normal" type="Button" parent="Panel/dificulty"]
+layout_mode = 2
+text = "Normal"
+
+[node name="Hard" type="Button" parent="Panel/dificulty"]
+layout_mode = 2
+text = "Hard"
+
+[node name="Arcana Ultima" type="Button" parent="Panel/dificulty"]
+layout_mode = 2
+text = "Arcana Ultima"
