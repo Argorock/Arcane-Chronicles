@@ -32,3 +32,5 @@ func _on_guild_door_zone_body_entered(body):
 func _on_guild_door_zone_body_exited(body):
 	if body.name == "Player":
 		current_door = null
+		
+

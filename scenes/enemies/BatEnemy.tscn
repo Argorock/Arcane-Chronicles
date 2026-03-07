@@ -1,0 +1,130 @@
+[gd_scene load_steps=16 format=3 uid="uid://fk31dmcld3gu"]
+
+[ext_resource type="Script" path="res://scenes/enemies/BatEnemy.gd" id="1_ammp0"]
+[ext_resource type="Texture2D" uid="uid://dplxhgqcvsp7a" path="res://assets/enemies/DarkFantasyEnemies_FREE/DarkFantasyEnemies_FREE/Bat/Bat with VFX/Bat-IdleFly.png" id="2_ibmbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_py1s4"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1y6op"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t72vi"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wslby"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbew3"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osqxh"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcw64"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edxnv"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utpwl"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l4x3"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep6qk"]
+atlas = ExtResource("2_ibmbl")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ei7w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t72vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wslby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbew3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osqxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcw64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edxnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utpwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l4x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep6qk")
+}],
+"loop": true,
+"name": &"idlefly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkt5p"]
+
+[node name="BatEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 3
+script = ExtResource("1_ammp0")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_py1s4")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_1y6op")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ei7w8")
+animation = &"idlefly"
+frame_progress = 0.0208615
+speed_scale = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bkt5p")
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="RaycastGroup" type="Node2D" parent="."]
+
+[node name="WallCheckFront" type="RayCast2D" parent="RaycastGroup"]
+target_position = Vector2(40, 0)
+collision_mask = 3
+
+[node name="WallCheckLeft" type="RayCast2D" parent="RaycastGroup"]
+target_position = Vector2(-20, 0)
+collision_mask = 3
+
+[node name="WallCheckRight" type="RayCast2D" parent="RaycastGroup"]
+target_position = Vector2(20, 0)
+collision_mask = 3
+
+[node name="WallCheckUp" type="RayCast2D" parent="RaycastGroup"]
+target_position = Vector2(0, -20)
+collision_mask = 3
+
+[node name="WallCheckDown" type="RayCast2D" parent="RaycastGroup"]
+target_position = Vector2(0, 20)
+collision_mask = 3

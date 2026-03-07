@@ -9,6 +9,8 @@ radius = 5.0
 height = 18.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_nek0s")
 fireball = ExtResource("2_i75sv")
 

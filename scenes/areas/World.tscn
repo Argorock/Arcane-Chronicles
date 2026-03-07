@@ -33,10 +33,6 @@ layer_0/tile_data = PackedInt32Array(1376181, 393223, 2, 1441717, 393221, 3, 150
 [node name="HubMenu" parent="." instance=ExtResource("1_v2y4h")]
 
 [node name="Player" parent="." instance=ExtResource("2_sscnn")]
-speed = 200
-jump_force = -350
-gravity = 900
-max_health = 100
 fireball = null
 
 [node name="LibraryBuilding" type="Node2D" parent="."]
