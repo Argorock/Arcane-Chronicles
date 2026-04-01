@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd34a4a14j3ro"]
+
+[ext_resource type="Script" path="res://system/spells/cone.gd" id="1_lsbtj"]
+
+[node name="Cone" type="Node2D"]
+script = ExtResource("1_lsbtj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 0, 0, 10, -4, 10, 4)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 10, -4, 10, 4)

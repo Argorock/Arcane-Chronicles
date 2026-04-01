@@ -1,13 +1,26 @@
 extends BehaviorData
+class_name HomingBehavior
 
-@export var turn_speed: float = 5.0
+@export var turn_rate: float = 6.0
 
 func _init():
 	behavior_name = "Homing"
-	description = "spell moves towards targets"
-	
-func on_tick(spell, delta):
-	if spell.target == null:
+	description = "Targets a creature and steers toward it."
+
+func on_tick(projectile, delta):
+	var target = projectile.target
+	if target == null:
 		return
-	var to_target = (spell.target.global_position - spell.global_position).normalized()
-	spell.velocity = spell.velocity.lerp(to_target * spell.speed, turn_speed * delta)
+
+	# direction to target
+	var to_target = target.global_position - projectile.global_position
+	if to_target.length() == 0:
+		return
+
+	var desired = to_target.normalized() * projectile.speed
+
+	# smooth steering
+	projectile.velocity = projectile.velocity.lerp(
+		desired,
+		turn_rate * delta
+	)

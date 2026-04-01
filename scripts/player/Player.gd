@@ -4,7 +4,10 @@ extends CharacterBody2D
 @export var jump_force := -350
 @export var gravity := 900
 @export var max_health := 100
-@export var fireball: PackedScene
+
+
+@export var spell_casting: SpellCasting
+var current_spell: SpellData
 
 var health: int
 var facing_right := true
@@ -29,20 +32,18 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	if Input.is_action_just_pressed("cast_spell"):
+	if Input.is_action_pressed("cast_spell"):
 		cast_spell()
+	else:
+		spell_casting.is_casting = false
+
 
 func cast_spell():
-	if fireball == null:
+	if current_spell == null:
 		return
 
-	var spell = fireball.instantiate()
-	spell.global_position = global_position
-
-	var mouse_pos = get_global_mouse_position()
-	spell.direction = (mouse_pos - global_position).normalized()
-
-	get_tree().current_scene.add_child(spell)
+	var mouse_pos := get_global_mouse_position()
+	spell_casting.cast_spell(current_spell, self, mouse_pos)
 
 func take_damage(amount):
 	health -= amount
@@ -54,3 +55,4 @@ func take_damage(amount):
 func die():
 	print("Game Over")
 	get_tree().reload_current_scene()
+	

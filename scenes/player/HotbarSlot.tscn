@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://br634ejdhwy1j"]
+
+[ext_resource type="Script" path="res://scenes/player/HotbarSlot.gd" id="1_jpqqi"]
+
+[node name="HotbarSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jpqqi")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CooldownOverlay" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KeyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SelectionHighlight" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

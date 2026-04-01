@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hotbar" load_steps=2 format=3 uid="uid://r0quca1oj22b"]
+
+[ext_resource type="Script" path="res://scenes/player/Hotbar.gd" id="1_1buce"]
+
+[resource]
+script = ExtResource("1_1buce")
+slots = Array[Resource("res://system/spells/spell.gd")]([])

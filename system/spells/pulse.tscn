@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5essub1cbakm"]
+
+[ext_resource type="Script" path="res://system/spells/pulse.gd" id="1_hlf6c"]
+
+[node name="Pulse" type="Node2D"]
+script = ExtResource("1_hlf6c")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 4.0

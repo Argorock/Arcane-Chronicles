@@ -56,7 +56,9 @@ position = Vector2(582, 344)
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("2_mw6v1")]
+top_level = true
 position = Vector2(582, 344)
+collision_layer = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

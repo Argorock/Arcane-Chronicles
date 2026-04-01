@@ -1,8 +1,11 @@
 extends BehaviorData
+class_name PiercingBehavior
+
+@export var extra_pierces: int = 1
 
 func _init():
 	behavior_name = "Piercing"
-	description = "Allows spell to pass through more targets"
-	
-func on_hit(spell, target):
-	spell.should_destroy_on_hit = false
+	description = "Increases the base pierce of the spell."
+
+func on_spawn(projectile):
+	projectile.max_pierces += extra_pierces

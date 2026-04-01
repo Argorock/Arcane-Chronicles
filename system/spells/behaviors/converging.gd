@@ -1,15 +1,24 @@
 extends BehaviorData
+class_name ConvergingBehavior
 
-@export var converge_strength: float = 2.0
-
+@export var converge_strength: float = 4.0
 
 func _init():
-	behavior_name = "Homing"
-	description = "spell moves towards targets"
-	
-func on_tick(spell, delta):
-	var to_end = (spell.end_point - spell.global_position).normalized()
-	spell.velocity = spell.velocity.lerp(to_end * spell. speed, converge_strength * delta)
-	
-	
-	
+	behavior_name = "Converging"
+	description = "Projectiles curve toward the clicked point."
+
+func on_tick(projectile, delta):
+	var end_point = projectile.end_point
+	if end_point == null:
+		return
+
+	var to_point = end_point - projectile.global_position
+	if to_point.length() == 0:
+		return
+
+	var desired = to_point.normalized() * projectile.speed
+
+	projectile.velocity = projectile.velocity.lerp(
+		desired,
+		converge_strength * delta
+	)

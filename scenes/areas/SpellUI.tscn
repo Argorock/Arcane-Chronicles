@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://buyvswupctu2p"]
+[gd_scene load_steps=3 format=3 uid="uid://buyvswupctu2p"]
 
 [ext_resource type="Theme" uid="uid://bwo3i0lx4kiny" path="res://SpellUITheme.tres" id="1_fcasu"]
+[ext_resource type="Script" path="res://scenes/areas/SpellUI.gd" id="2_i28ri"]
 
 [node name="SpellUi" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fcasu")
+script = ExtResource("2_i28ri")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -42,7 +44,7 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/CastingTab/ScrollContainer"]
+[node name="CastingGrid" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/CastingTab/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -58,7 +60,7 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/ElementsTab/ScrollContainer"]
+[node name="ElementGrid" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/ElementsTab/ScrollContainer"]
 layout_mode = 2
 columns = 3
 
@@ -72,7 +74,7 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/BehaviorTab/ScrollContainer"]
+[node name="BehaviorGrid" type="GridContainer" parent="Panel/HBoxContainer/TabContainer/BehaviorTab/ScrollContainer"]
 layout_mode = 2
 columns = 3
 
@@ -104,10 +106,16 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
+[node name="NameField" type="LineEdit" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Spell Name"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+
+[connection signal="pressed" from="Panel/HBoxContainer/Panel/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

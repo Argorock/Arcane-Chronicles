@@ -1,48 +1,35 @@
-@icon("res://icons/spell_icon.png")
 extends Resource
-class_name Spell
+class_name SpellData
 
-# Enums
-const Element = preload("res://system/spells/element.gd")
-const CastingType = preload("res://system/spells/casting_type.gd")
-const Behavior = preload("res://system/spells/behavior.gd")
-const Utility = preload("res://system/spells/utility.gd")
+@export var name: String = "Unnamed Spell"
 
-#		Spell Name
-@export var spell_name: String = "Unnamed Spell"
+# Core components
+@export var element: ElementData
+@export var casting_type: CastingTypeData
 
-#		Element type
-@export var element: Element = Element.NONE
+# Base stats (before element multipliers)
+@export var base_damage: float = 10.0
+@export var base_speed: float = 300.0
+@export var base_range: float = 400.0
+@export var base_cooldown: float = 0.5
+@export var base_mana_cost: float = 10.0
 
-#		Casting Tyoe
-@export var casting_type: CastingType = CastingType.SINGLESHOT
+# Optional: behaviors (status effects, modifiers, etc.)
+@export var behaviors: Array = []
 
-#		Base Stats
+func get_final_stats() -> Dictionary:
+	var stats := {}
 
-@export var mana_cost: float = 10.0
-@export var cast_time: float = 0.5
-@export var cooldown: float = 1.0
-@export var range: float = 10.0
-@export var speed: float = 20.0
-@export var damage: float = 20.0
+	# Apply element multipliers
+	stats.damage = base_damage * element.damage_multiplier
+	stats.speed = base_speed * element.speed_multiplier
+	stats.range = base_range * element.range_multiplier
+	stats.cooldown = base_cooldown \
+		* element.cooldown_multiplier \
+		* casting_type.cooldown_multiplier
+	stats.mana_cost = base_mana_cost * element.mana_cost_multiplier
 
-#		Behaviors
-@export var behaviors: Array[Behavior] = []
-@export var utilities: Array[Utility] = []
+	# Casting type may also modify speed
+	stats.speed *= casting_type.speed_multiplier
 
-@export var visuals: PackedScene = null
-@export var audio: AudioStream = null
-
-#		lets you add a id and description to a spell
-@export var spell_id: string = ""
-@export var description: string = ""
-
-#		gives a setable limit to the number of Attributes
-@export var attributes: Array[Attribute] = []
-
-
-#		Allows for special spell overrides
-@export var runtime_script: Script = null
-
-#		UI Icon
-@export var icon: Texture2D = null
+	return stats

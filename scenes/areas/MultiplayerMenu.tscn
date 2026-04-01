@@ -1,15 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bui4syr20ef0v"]
+[gd_scene load_steps=3 format=3 uid="uid://bui4syr20ef0v"]
 
 [ext_resource type="TileSet" uid="uid://d3b1q366efcpp" path="res://scenes/areas/World.tres" id="1_4quey"]
 [ext_resource type="Script" path="res://scenes/areas/MultiplayerMenu.gd" id="1_c8i51"]
-[ext_resource type="PackedScene" uid="uid://vgh87f4su24u" path="res://scenes/player/player.tscn" id="2_ml13m"]
-[ext_resource type="Script" path="res://scenes/areas/door.gd" id="4_6uedm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8wx"]
-size = Vector2(16, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfx0r"]
-size = Vector2(16, 32)
 
 [node name="MultiplayerMenu" type="Node2D"]
 script = ExtResource("1_c8i51")
@@ -23,47 +15,3 @@ layer_0/tile_data = PackedInt32Array(-1638469, 393217, 3, -1572933, 458753, 2, -
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(582, 344)
 zoom = Vector2(4, 4)
-
-[node name="Player" parent="." instance=ExtResource("2_ml13m")]
-position = Vector2(258, 527)
-
-[node name="LibraryBuilding" type="Node2D" parent="."]
-
-[node name="Library" type="ColorRect" parent="LibraryBuilding"]
-offset_left = 884.0
-offset_top = 504.0
-offset_right = 900.0
-offset_bottom = 536.0
-color = Color(0.223529, 0.980392, 0.294118, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="LibraryDoorZone" type="Area2D" parent="LibraryBuilding"]
-script = ExtResource("4_6uedm")
-target_scene = "res://scenes/areas/SpellBuilder.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryBuilding/LibraryDoorZone"]
-position = Vector2(892, 520)
-shape = SubResource("RectangleShape2D_sb8wx")
-
-[node name="ArenaBuilding" type="Node2D" parent="."]
-position = Vector2(238, 520)
-
-[node name="Arena" type="ColorRect" parent="ArenaBuilding"]
-offset_left = -8.0
-offset_top = -16.0
-offset_right = 8.0
-offset_bottom = 16.0
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ArenaDoorZone" type="Area2D" parent="ArenaBuilding"]
-script = ExtResource("4_6uedm")
-target_scene = "res://scenes/areas/MultiplayerMenu.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaBuilding/ArenaDoorZone"]
-shape = SubResource("RectangleShape2D_qfx0r")
-
-[connection signal="body_entered" from="LibraryBuilding/LibraryDoorZone" to="." method="_on_library_door_zone_body_entered"]
-[connection signal="body_exited" from="LibraryBuilding/LibraryDoorZone" to="." method="_on_library_door_zone_body_exited"]
-[connection signal="body_entered" from="ArenaBuilding/ArenaDoorZone" to="." method="_on_arena_door_zone_body_entered"]
-[connection signal="body_exited" from="ArenaBuilding/ArenaDoorZone" to="." method="_on_arena_door_zone_body_exited"]
