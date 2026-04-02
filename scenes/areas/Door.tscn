@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds3eqgbs5hlaj"]
+[gd_scene load_steps=10 format=3 uid="uid://ds3eqgbs5hlaj"]
 
 [ext_resource type="Script" path="res://scenes/areas/Door.gd" id="1_7wj7l"]
 [ext_resource type="Texture2D" uid="uid://w48b2xvblkuj" path="res://assets/tilesets/townsets/2D Puzzle Elements/Door/Door_Open.png" id="2_32ijy"]
-
-[sub_resource type="GDScript" id="GDScript_40es8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnohx"]
 size = Vector2(31, 51)
@@ -51,17 +49,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Door" type="Node2D" groups=["doors"]]
+[node name="DoorZone" type="Area2D" groups=["doors"]]
 script = ExtResource("1_7wj7l")
 
-[node name="DoorZone" type="Area2D" parent="."]
-script = SubResource("GDScript_40es8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qnohx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DoorZone"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kog38")
 
-[connection signal="body_entered" from="DoorZone" to="." method="_on_door_zone_body_entered"]
-[connection signal="body_exited" from="DoorZone" to="." method="_on_door_zone_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

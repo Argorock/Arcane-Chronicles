@@ -21,6 +21,7 @@ GameState="*res://scripts/GameState.gd"
 EnemyDb="*res://EnemyDB.gd"
 UniversalPool="*res://scenes/enemies/UniversalPool.gd"
 spellregistry="*res://system/spells/SpellRegistry.gd"
+Doormanager="*res://doormanager.gd"
 
 [input]
 

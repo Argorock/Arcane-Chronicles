@@ -1,21 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://djqg6vxtgt5r3"]
+[gd_scene load_steps=10 format=3 uid="uid://djqg6vxtgt5r3"]
 
-[ext_resource type="Script" path="res://scenes/areas/World.gd" id="1_x2gvv"]
 [ext_resource type="TileSet" uid="uid://d3b1q366efcpp" path="res://scenes/areas/World.tres" id="2_gmle2"]
 [ext_resource type="PackedScene" uid="uid://vgh87f4su24u" path="res://scenes/player/player.tscn" id="2_sscnn"]
 [ext_resource type="PackedScene" uid="uid://d0knhu0l408vc" path="res://scenes/enemies/Dummy.tscn" id="6_jgb7q"]
 [ext_resource type="PackedScene" uid="uid://dxgsyiey4qhdc" path="res://scenes/player/saveStatue.tscn" id="7_inrmq"]
 [ext_resource type="Texture2D" uid="uid://be7ua0n47o12b" path="res://assets/tilesets/Texture/PNG/bgcolor.png" id="8_lpg82"]
-[ext_resource type="PackedScene" uid="uid://d3ytg1eqx0bpr" path="res://scenes/areas/guild.tscn" id="8_unwkp"]
 [ext_resource type="Texture2D" uid="uid://c78yrk1d70nl4" path="res://assets/tilesets/Texture/PNG/Tlayer1.png" id="9_81i5i"]
-[ext_resource type="PackedScene" uid="uid://d02vrpsgctc23" path="res://scenes/areas/Library.tscn" id="9_u50m8"]
-[ext_resource type="PackedScene" uid="uid://bui4syr20ef0v" path="res://scenes/areas/MultiplayerMenu.tscn" id="10_pvaue"]
 [ext_resource type="Texture2D" uid="uid://ch5677fv2irbd" path="res://assets/tilesets/Texture/PNG/Tlayer2.png" id="10_s506s"]
 [ext_resource type="Texture2D" uid="uid://vbnepfctnbln" path="res://assets/tilesets/Texture/PNG/Tlayer3.png" id="11_7wsh1"]
 [ext_resource type="PackedScene" uid="uid://ds3eqgbs5hlaj" path="res://scenes/areas/Door.tscn" id="11_xw8ha"]
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_x2gvv")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, 0)
@@ -65,27 +60,16 @@ region_rect = Rect2(0, 0, 480, 120)
 
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 3
-position = Vector2(124, 98)
+position = Vector2(124, 108)
 scale = Vector2(2.99583, 2.16786)
 texture = ExtResource("11_7wsh1")
 region_enabled = true
 region_rect = Rect2(0, 0, 480, 140)
 
-[node name="guild" type="Node2D" parent="."]
-position = Vector2(-156, 0)
-
-[node name="Door" parent="guild" instance=ExtResource("11_xw8ha")]
-position = Vector2(-168, 136)
-target_scene = ExtResource("8_unwkp")
-
 [node name="Library" type="Node2D" parent="."]
+position = Vector2(5, 10)
 
-[node name="Door2" parent="Library" instance=ExtResource("11_xw8ha")]
+[node name="LibraryDoor" parent="Library" instance=ExtResource("11_xw8ha")]
 position = Vector2(-47, 134)
-target_scene = ExtResource("9_u50m8")
-
-[node name="Arena" type="Node2D" parent="."]
-
-[node name="Door3" parent="Arena" instance=ExtResource("11_xw8ha")]
-position = Vector2(421, 135)
-target_scene = ExtResource("10_pvaue")
+target_scene = "res://scenes/areas/Library.tscn"
+target_door = "WorldDoor"

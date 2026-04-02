@@ -17,7 +17,7 @@ var undodgeable: bool = false
 var behaviors: Array = []
 var velocity: Vector2 = Vector2.ZERO
 var lifetime: float = 3.0
-var max_distance: float = 400.0
+var max_distance: float = 500.0
 var start_position: Vector2
 var end_point: Vector2 = Vector2.ZERO
 

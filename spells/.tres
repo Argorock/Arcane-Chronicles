@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SpellData" load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://system/spells/behaviors/converging.gd" id="1_ofqij"]
-[ext_resource type="Script" path="res://system/spells/casting_types/rain.gd" id="2_523m7"]
-[ext_resource type="Script" path="res://system/spells/elements/arcana.gd" id="3_dramn"]
-[ext_resource type="Script" path="res://system/spells/spell.gd" id="4_ifnul"]
+[ext_resource type="Script" path="res://system/spells/behaviors/converging.gd" id="1_qs2rl"]
+[ext_resource type="Script" path="res://system/spells/casting_types/rain.gd" id="2_0whle"]
+[ext_resource type="Script" path="res://system/spells/elements/arcana.gd" id="3_3rjff"]
+[ext_resource type="Script" path="res://system/spells/spell.gd" id="4_6osdh"]
 
-[sub_resource type="Resource" id="Resource_ne8n1"]
-script = ExtResource("1_ofqij")
+[sub_resource type="Resource" id="Resource_v8o04"]
+script = ExtResource("1_qs2rl")
 converge_strength = 4.0
 behavior_name = "Converging"
 description = "Projectiles curve toward the clicked point."
@@ -20,8 +20,8 @@ can_home = false
 can_split = false
 can_explode = false
 
-[sub_resource type="Resource" id="Resource_ahj2l"]
-script = ExtResource("2_523m7")
+[sub_resource type="Resource" id="Resource_t1nym"]
+script = ExtResource("2_0whle")
 type_name = "Rain"
 description = "Chaotic projectiles falling over a wide area."
 pattern = 9
@@ -48,8 +48,8 @@ undodgeable = false
 fire_rate_multiplier = 1.0
 duration = 0.0
 
-[sub_resource type="Resource" id="Resource_qu4lo"]
-script = ExtResource("3_dramn")
+[sub_resource type="Resource" id="Resource_oxqls"]
+script = ExtResource("3_3rjff")
 element_name = "Arcana"
 color = Color(0.627451, 0.12549, 0.941176, 1)
 damage_multiplier = 1.0
@@ -60,13 +60,13 @@ mana_cost_multiplier = 1.0
 status_chance = 0.0
 
 [resource]
-script = ExtResource("4_ifnul")
+script = ExtResource("4_6osdh")
 name = ""
-element = SubResource("Resource_qu4lo")
-casting_type = SubResource("Resource_ahj2l")
+element = SubResource("Resource_oxqls")
+casting_type = SubResource("Resource_t1nym")
 base_damage = 10.0
 base_speed = 300.0
 base_range = 400.0
 base_cooldown = 0.5
 base_mana_cost = 10.0
-behaviors = [SubResource("Resource_ne8n1")]
+behaviors = [SubResource("Resource_v8o04")]

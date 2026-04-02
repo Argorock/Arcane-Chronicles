@@ -53,24 +53,28 @@ func _ready():
 		load("res://system/spells/elements/water.gd").new(),
 	]
 
+	# Only the behaviors we want active right now:
 	behaviors = [
-		load("res://system/spells/behaviors/area-of-effect.gd").new(),
-		load("res://system/spells/behaviors/bounce.gd").new(),
-		load("res://system/spells/behaviors/burst_impact.gd").new(),
-		load("res://system/spells/behaviors/converging.gd").new(),
-		load("res://system/spells/behaviors/exploding.gd").new(),
-		load("res://system/spells/behaviors/far_shot.gd").new(),
-		load("res://system/spells/behaviors/growth.gd").new(),
-		load("res://system/spells/behaviors/homing.gd").new(),
-		load("res://system/spells/behaviors/orbiting.gd").new(),
-		load("res://system/spells/behaviors/phasing.gd").new(),
 		load("res://system/spells/behaviors/piercing.gd").new(),
-		load("res://system/spells/behaviors/ricochet.gd").new(),
+		load("res://system/spells/behaviors/exploding.gd").new(),
+		load("res://system/spells/behaviors/repelling.gd").new(),
+		load("res://system/spells/behaviors/growth.gd").new(),
 		load("res://system/spells/behaviors/shifting.gd").new(),
 		load("res://system/spells/behaviors/splinter_shot.gd").new(),
+		load("res://system/spells/behaviors/area-of-effect.gd").new(),
+		load("res://system/spells/behaviors/converging.gd").new(),
+		load("res://system/spells/behaviors/homing.gd").new(),
 		load("res://system/spells/behaviors/spread.gd").new(),
-		load("res://system/spells/behaviors/zone.gd").new(),
 	]
+
+	# Commented out — available later:
+	# load("res://system/spells/behaviors/bounce.gd").new(),
+	# load("res://system/spells/behaviors/burst_impact.gd").new(),
+	# load("res://system/spells/behaviors/far_shot.gd").new(),
+	# load("res://system/spells/behaviors/orbiting.gd").new(),
+	# load("res://system/spells/behaviors/phasing.gd").new(),
+	# load("res://system/spells/behaviors/ricochet.gd").new(),
+	# load("res://system/spells/behaviors/zone.gd").new(),
 
 
 func get_casting_type_by_name(name: String) -> CastingTypeData:

@@ -7,5 +7,7 @@ func _init():
 	behavior_name = "Spread"
 	description = "Increases spread angle of multi‑projectile casting types."
 
-func on_spawn(projectile):
-	projectile.spread_angle += extra_spread
+func on_spawn(projectile: Node2D) -> void:
+	# Your casting types use `spread_degrees`
+	if projectile.has_variable("spread_degrees"):
+		projectile.spread_degrees += extra_spread

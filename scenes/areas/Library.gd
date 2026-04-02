@@ -22,10 +22,34 @@ func _ready():
 	element_grid = ui.find_child("ElementGrid", true, false)
 	behavior_grid = ui.find_child("BehaviorGrid", true, false)
 
+	# Make Save button bigger + rename
 	if save_button:
+		save_button.text = "Save Spell"
 		save_button.pressed.connect(_on_SaveButton_pressed)
-		save_button.custom_minimum_size = Vector2(420, 160)
-		save_button.add_theme_font_size_override("font_size", 32)
+		save_button.custom_minimum_size = Vector2(520, 200)
+		save_button.add_theme_font_size_override("font_size", 40)
+
+	# Make tabs bigger
+	var tabs := ui.find_child("TabContainer", true, false)
+	if tabs:
+		tabs.add_theme_font_size_override("font_size", 32)
+		tabs.custom_minimum_size = Vector2(0, 80)
+
+	# Add spacing to grids
+	if casting_grid:
+		casting_grid.columns = 1
+		casting_grid.add_theme_constant_override("h_separation", 20)
+		casting_grid.add_theme_constant_override("v_separation", 20)
+
+	if element_grid:
+		element_grid.columns = 1
+		element_grid.add_theme_constant_override("h_separation", 20)
+		element_grid.add_theme_constant_override("v_separation", 20)
+
+	if behavior_grid:
+		behavior_grid.columns = 1
+		behavior_grid.add_theme_constant_override("h_separation", 20)
+		behavior_grid.add_theme_constant_override("v_separation", 20)
 
 	ui.visible = false
 
@@ -55,8 +79,17 @@ func _make_button(text: String, single: bool, container: Node):
 	var btn := Button.new()
 	btn.text = text
 	btn.toggle_mode = true
-	btn.custom_minimum_size = Vector2(300, 120)
+
+	# Bigger buttons
+	btn.custom_minimum_size = Vector2(420, 160)
+	btn.add_theme_font_size_override("font_size", 32)
+
+	# More spacing
+	btn.add_theme_constant_override("h_separation", 20)
+	btn.add_theme_constant_override("v_separation", 20)
+
 	btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
 	if single:
 		btn.pressed.connect(_on_single_pressed.bind(btn, container))
