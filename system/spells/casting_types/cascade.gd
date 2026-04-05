@@ -7,7 +7,7 @@ func _init():
 	pattern = Pattern.CASCADE
 
 	cast_time_multiplier = 1.0
-	cooldown_multiplier = 1.25
+	cooldown_multiplier = 1.15
 	speed_multiplier = 1.0
 	range_multiplier = 1.15
 	mana_cost_multiplier = 1.2

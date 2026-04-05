@@ -14,6 +14,10 @@ var facing_right := true
 
 func _ready():
 	health = max_health
+	
+	var spawn = get_tree().current_scene.get_node_or_null("SpawnPoint")
+	if spawn:
+		global_position = spawn.global_position
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -47,12 +51,13 @@ func cast_spell():
 
 func take_damage(amount):
 	health -= amount
-	print("Player health:", health)
+	#print("Player health:", health)
 
 	if health <= 0:
 		die()
 
 func die():
-	print("Game Over")
+	#print("Game Over")
+	health = max_health
 	get_tree().reload_current_scene()
 	

@@ -175,3 +175,4 @@ func _on_SaveButton_pressed():
 		var caster := player.get_node("PlayerSpellCaster")
 		if caster:
 			caster.set_spell(spell)
+	ui.visible = false

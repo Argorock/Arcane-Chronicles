@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://system/spells/behaviors/growth.gd" id="1_ikcjp"]
+[ext_resource type="Script" path="res://system/spells/casting_types/cascade.gd" id="2_olkiw"]
+[ext_resource type="Script" path="res://system/spells/elements/arcana.gd" id="3_ko053"]
+[ext_resource type="Script" path="res://system/spells/spell.gd" id="4_luwh2"]
+
+[sub_resource type="Resource" id="Resource_o1o6t"]
+script = ExtResource("1_ikcjp")
+growth_rate = 1.0
+behavior_name = "Growth"
+description = "Spell grows in size as it travels."
+damage_multiplier = 1.0
+radius_multiplier = 1.0
+duration_multiplier = 1.0
+speed_multiplier = 1.0
+can_pierce = false
+can_ricochet = false
+can_home = false
+can_split = false
+can_explode = false
+
+[sub_resource type="Resource" id="Resource_i6opw"]
+script = ExtResource("2_olkiw")
+type_name = "Cascade"
+description = "A sweeping line of descending projectiles."
+pattern = 11
+cast_time_multiplier = 1.0
+cooldown_multiplier = 1.25
+speed_multiplier = 1.0
+range_multiplier = 1.15
+mana_cost_multiplier = 1.2
+projectile_scale = 0.5
+origin = 2
+shape = 1
+motion = 3
+persistence = 3
+projectile_count = 12
+spread_degrees = 5.0
+arc_height = 3.0
+uses_projectile = true
+uses_beam = false
+uses_instant_hit = false
+uses_cone = false
+gravity_enabled = false
+homing_enabled = false
+undodgeable = false
+fire_rate_multiplier = 1.0
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_pqer3"]
+script = ExtResource("3_ko053")
+element_name = "Arcana"
+color = Color(0.627451, 0.12549, 0.941176, 1)
+damage_multiplier = 1.0
+speed_multiplier = 1.0
+range_multiplier = 1.0
+cooldown_multiplier = 1.0
+mana_cost_multiplier = 1.0
+status_chance = 0.0
+
+[resource]
+script = ExtResource("4_luwh2")
+name = "a"
+element = SubResource("Resource_pqer3")
+casting_type = SubResource("Resource_i6opw")
+base_damage = 10.0
+base_speed = 300.0
+base_range = 400.0
+base_cooldown = 0.5
+base_mana_cost = 10.0
+behaviors = [SubResource("Resource_o1o6t")]

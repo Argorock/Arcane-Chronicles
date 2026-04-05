@@ -4,6 +4,7 @@ extends Node2D
 @export var spawn_interval := 3.0
 @export var max_alive := 10
 @export var spawn_radius := 200.0
+@export var activation_range := 200.0
 
 var timer := 0.0
 var alive := []
@@ -18,6 +19,15 @@ func _process(delta):
 		_try_spawn()
 
 func _try_spawn():
+	var players = get_tree().get_nodes_in_group("player")
+	if players.is_empty():
+		return
+
+	var player = players[0]
+
+	if global_position.distance_to(player.global_position) > activation_range:
+		return
+
 	# Clean the alive list properly
 	alive = alive.filter(func(e):
 		return e != null and is_instance_valid(e) and e.alive and e.get_parent() == get_tree().current_scene)

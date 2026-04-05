@@ -7,7 +7,7 @@ func _init():
 	pattern = Pattern.BURST
 
 	cast_time_multiplier = 1.1
-	cooldown_multiplier = 1.15
+	cooldown_multiplier = 0.6
 	speed_multiplier = 1.0
 	range_multiplier = 1.0
 	mana_cost_multiplier = 1.1
@@ -20,4 +20,4 @@ func _init():
 	projectile_count = 3
 	spread_degrees = 5
 	arc_height = 0.0
-	projectile_scale = 0.5
+	projectile_scale = 0.7

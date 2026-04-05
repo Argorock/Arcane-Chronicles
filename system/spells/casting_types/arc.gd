@@ -8,7 +8,7 @@ func _init():
 
 	cast_time_multiplier = 1.0
 	cooldown_multiplier = 1.0
-	speed_multiplier = 1.3
+	speed_multiplier = 1.7
 	range_multiplier = 1.1
 	mana_cost_multiplier = 1.0
 

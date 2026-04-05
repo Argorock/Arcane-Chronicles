@@ -329,3 +329,6 @@ func _die():
 
 func _deferred_die():
 	UniversalPool.return_creature(self, creature_scene)
+	
+func apply_damage(amount):
+	take_damage(amount)

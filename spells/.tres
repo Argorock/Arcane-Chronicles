@@ -1,43 +1,27 @@
-[gd_resource type="Resource" script_class="SpellData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="SpellData" load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://system/spells/behaviors/converging.gd" id="1_qs2rl"]
-[ext_resource type="Script" path="res://system/spells/casting_types/rain.gd" id="2_0whle"]
-[ext_resource type="Script" path="res://system/spells/elements/arcana.gd" id="3_3rjff"]
-[ext_resource type="Script" path="res://system/spells/spell.gd" id="4_6osdh"]
+[ext_resource type="Script" path="res://system/spells/elements/darkness.gd" id="2_j1ufv"]
+[ext_resource type="Script" path="res://system/spells/spell.gd" id="3_ridl3"]
+[ext_resource type="Script" path="res://system/spells/casting_types/shotgun.gd" id="4_6x1d2"]
 
-[sub_resource type="Resource" id="Resource_v8o04"]
-script = ExtResource("1_qs2rl")
-converge_strength = 4.0
-behavior_name = "Converging"
-description = "Projectiles curve toward the clicked point."
-damage_multiplier = 1.0
-radius_multiplier = 1.0
-duration_multiplier = 1.0
-speed_multiplier = 1.0
-can_pierce = false
-can_ricochet = false
-can_home = false
-can_split = false
-can_explode = false
-
-[sub_resource type="Resource" id="Resource_t1nym"]
-script = ExtResource("2_0whle")
-type_name = "Rain"
-description = "Chaotic projectiles falling over a wide area."
-pattern = 9
-cast_time_multiplier = 1.15
-cooldown_multiplier = 0.01
-speed_multiplier = 1.5
-range_multiplier = 1.2
-mana_cost_multiplier = 1.15
-projectile_scale = 0.2
+[sub_resource type="Resource" id="Resource_u6sj6"]
+script = ExtResource("4_6x1d2")
+type_name = "Shotgun"
+description = "A close‑range blast of multiple projectiles."
+pattern = 3
+cast_time_multiplier = 1.0
+cooldown_multiplier = 1.1
+speed_multiplier = 3.0
+range_multiplier = 0.6
+mana_cost_multiplier = 1.1
+projectile_scale = 0.3
 origin = 0
-shape = 4
-motion = 2
-persistence = 2
-projectile_count = 1
-spread_degrees = 20.0
-arc_height = 5.0
+shape = 0
+motion = 1
+persistence = 0
+projectile_count = 8
+spread_degrees = 10.0
+arc_height = 0.0
 uses_projectile = true
 uses_beam = false
 uses_instant_hit = false
@@ -48,25 +32,25 @@ undodgeable = false
 fire_rate_multiplier = 1.0
 duration = 0.0
 
-[sub_resource type="Resource" id="Resource_oxqls"]
-script = ExtResource("3_3rjff")
-element_name = "Arcana"
-color = Color(0.627451, 0.12549, 0.941176, 1)
-damage_multiplier = 1.0
+[sub_resource type="Resource" id="Resource_g06u3"]
+script = ExtResource("2_j1ufv")
+element_name = "Darkness"
+color = Color(0, 0, 0, 1)
+damage_multiplier = 1.15
 speed_multiplier = 1.0
-range_multiplier = 1.0
-cooldown_multiplier = 1.0
-mana_cost_multiplier = 1.0
+range_multiplier = 0.95
+cooldown_multiplier = 1.1
+mana_cost_multiplier = 1.1
 status_chance = 0.0
 
 [resource]
-script = ExtResource("4_6osdh")
+script = ExtResource("3_ridl3")
 name = ""
-element = SubResource("Resource_oxqls")
-casting_type = SubResource("Resource_t1nym")
+element = SubResource("Resource_g06u3")
+casting_type = SubResource("Resource_u6sj6")
 base_damage = 10.0
 base_speed = 300.0
 base_range = 400.0
 base_cooldown = 0.5
 base_mana_cost = 10.0
-behaviors = [SubResource("Resource_v8o04")]
+behaviors = []

@@ -18,7 +18,7 @@ func _init():
 	persistence = Persistence.INSTANT
 
 	projectile_count = 8
-	spread_degrees = 5
+	spread_degrees = 10
 	arc_height = 0.0
 	projectile_scale = 0.3
 	gravity_enabled = true

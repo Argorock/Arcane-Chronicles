@@ -138,3 +138,23 @@ func get_entities_in_radius(center: Vector2, radius: float) -> Array:
 			entities.append(r.collider)
 
 	return entities
+
+
+
+func _on_area_2d_body_entered(body):
+	if body == caster:
+		return
+
+	# Behaviors still get their hit callback
+	for b in behaviors:
+		b.on_hit(self, body)
+
+	# Apply damage if the target supports it
+	if body.has_method("apply_damage"):
+		body.apply_damage(damage)
+
+	# Expire projectile unless it's undodgeable
+	if not undodgeable:
+		for b in behaviors:
+			b.on_expire(self)
+		queue_free()
